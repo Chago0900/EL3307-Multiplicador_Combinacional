@@ -29,4 +29,5 @@ def hex_a_bin(ini_string):
     # Print the resultant string
     print ("Resultant string", str(res))
 
-hex_a_bin("1ABC")
+    return str(res)
+
