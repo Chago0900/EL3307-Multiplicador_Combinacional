@@ -13,6 +13,8 @@ import algoritmo
 import conversion
 import os
 import subprocess
+import io
+
 
 def multiplicarFacil (num1, num2):
     
@@ -31,13 +33,13 @@ def multiplicarFacil (num1, num2):
 # main function
 
 def multi (bits, num1, num2):
-
+    global bit
     global bin1
     global bin2
-
+    global _result
     lista1 = list(num1)
     lista2 = list(num2)
-
+    bit = str(bits)
 
     if (verificarEntrada(num1, bits) == 1 and lista1[0] == "d"):
         bin1 = conversion.dec_a_bin(int(num1[1:]))
@@ -76,6 +78,7 @@ def multi (bits, num1, num2):
     
     
     print(algoritmo.operar(bin1, bin2))
+    _result = str(algoritmo.operar(bin1, bin2))
     return True
 
 
@@ -181,62 +184,48 @@ multi (10, "h1A1", "123")
 #verificarHexadecimal(["1", "H", "0"])
 
 ##verificarEntrada("b151", 5)
+# Crear el archivo LaTeX en memoria
+latex = io.StringIO()
+latex.write(r"\documentclass{beamer}")
+latex.write("\n")
+latex.write(r"\usetheme{Madrid}")
+latex.write(r"\usecolortheme{seagull}")
 
+latex.write(r"\title{Multiplicador Combinacional}")
+latex.write(r"\author{Proyecto 1}")
 
-# Define your Beamer presentation
+latex.write(r"\begin{document}")
+latex.write("\n")
 
-my_var1 = str(bin1)
-my_var2 = str(bin2)
+latex.write(r"\begin{frame}")
+latex.write(r"\frametitle{Datos iniciales}")
+latex.write(r"Operando uno "+str(bin1))
+latex.write(r"\\")
+latex.write(r"Operando dos " + str(bin2))
+latex.write(r"\\")
+latex.write(r"Cantidad de bits " + bit)
+latex.write(r"\end{frame}")
+latex.write("\n")
+#
+latex.write(r"\begin{frame}")
+latex.write(r"\frametitle{Datos}")
+latex.write(r""+str(bin1))
+latex.write(r"\times "+str(bin1))
+latex.write(r"="+_result)
+latex.write(r"\end{frame}")
+latex.write("\n")
+#
+latex.write(r"\begin{frame}")
+latex.write(r"\frametitle{Informaci\'on}")
+latex.write(r"Dr.-Ing Pablo Mendoza Ponce \\ Santiago Brenes \\ Marcelo Mora \\ Kevin Rodr\'iguez \\ Instituto Tenol\'ogico de Costa Rica \\ Dise\~{n}o L\'ogico \\ Primer semestre 2013")
+latex.write(r"\end{frame}")
+#
+latex.write("\n")
+latex.write(r"\end{document}")
 
+# Escribir el archivo a disco
+with open("proyecto1.tex", "w") as f:
+    f.write(latex.getvalue())
 
-
-beamer_presentation = r"""
-
-\documentclass{beamer}
-
-
-
-
-\usetheme{Madrid}
-\usecolortheme{default}
-
-
-\begin{document}
-
-
-
-
-\title{Multiplicador Combinacional}
-\author{Proyecto 1}
-
-\begin{frame}
-\frametitle{Dastos ingresados}
-\end{frame}
-
-\begin{frame}
-\frametitle{RESULTADO}
-
-\end{frame}
-
-\begin{frame}
-\frametitle{DATOS}
-Dr.-Ing Pablo Mendoza Ponce\\
-Santiago Brenes\\
-Marcelo\\
-Kevin Rodr\'iguez\\\\
-Instituto Tenologico\\
-Dise\~{n}o L\'ogico\\\\
-A\~{n}o 2023 Semestre 1
-\end{frame}
-
-\end{document}
-""" 
-
-# Create a .tex file and write the Beamer presentation to it
-with open('my_beamer_presentation.tex', 'w') as f:
-    f.write(beamer_presentation)
-
-# Compile the .tex file using pdflatex
-subprocess.call(['pdflatex', 'my_beamer_presentation.tex'])
-
-# The resulting PDF should be in the same directory as the .tex file
+# Compilar el archivo LaTeX
+os.system("pdflatex proyecto1.tex")

@@ -32,7 +32,7 @@ def productouct(op1, op2):
 # second binary number
 
 def operar (firstBinary, secondBinary):
-	binaryMultiply = 0
+	binaryMultiply = 0 
 	factor = 1
 	while secondBinary != 0:
 		digit = secondBinary % 10
@@ -43,6 +43,9 @@ def operar (firstBinary, secondBinary):
 			firstBinary = firstBinary * factor
 		secondBinary = int(secondBinary/10)
 		factor = 10
+	
 	print("\nMultiplication Result = " + str(binaryMultiply))
-def optener ():
-    return binaryMultiply
+	return binaryMultiply
+
+ 
+ 
