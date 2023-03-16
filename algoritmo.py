@@ -44,3 +44,5 @@ def operar (firstBinary, secondBinary):
 		secondBinary = int(secondBinary/10)
 		factor = 10
 	print("\nMultiplication Result = " + str(binaryMultiply))
+def optener ():
+    return binaryMultiply

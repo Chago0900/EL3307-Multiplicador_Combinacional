@@ -11,6 +11,8 @@
 
 import algoritmo
 import conversion
+import os
+import subprocess
 
 def multiplicarFacil (num1, num2):
     
@@ -19,9 +21,10 @@ def multiplicarFacil (num1, num2):
  
     Multiplication = int(num1, 2) * int(num2, 2)
     binaryMul = bin(Multiplication)
+   
  
     print("\nResultado FACIL = " + binaryMul)
-
+  
 
 # bits = int
 # num1, num2 = string
@@ -29,8 +32,8 @@ def multiplicarFacil (num1, num2):
 
 def multi (bits, num1, num2):
 
-    bin1 = 0
-    bin2 = 0
+    global bin1
+    global bin2
 
     lista1 = list(num1)
     lista2 = list(num2)
@@ -179,3 +182,61 @@ multi (10, "h1A1", "123")
 
 ##verificarEntrada("b151", 5)
 
+
+# Define your Beamer presentation
+
+my_var1 = str(bin1)
+my_var2 = str(bin2)
+
+
+
+beamer_presentation = r"""
+
+\documentclass{beamer}
+
+
+
+
+\usetheme{Madrid}
+\usecolortheme{default}
+
+
+\begin{document}
+
+
+
+
+\title{Multiplicador Combinacional}
+\author{Proyecto 1}
+
+\begin{frame}
+\frametitle{Dastos ingresados}
+\end{frame}
+
+\begin{frame}
+\frametitle{RESULTADO}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{DATOS}
+Dr.-Ing Pablo Mendoza Ponce\\
+Santiago Brenes\\
+Marcelo\\
+Kevin Rodr\'iguez\\\\
+Instituto Tenologico\\
+Dise\~{n}o L\'ogico\\\\
+A\~{n}o 2023 Semestre 1
+\end{frame}
+
+\end{document}
+""" 
+
+# Create a .tex file and write the Beamer presentation to it
+with open('my_beamer_presentation.tex', 'w') as f:
+    f.write(beamer_presentation)
+
+# Compile the .tex file using pdflatex
+subprocess.call(['pdflatex', 'my_beamer_presentation.tex'])
+
+# The resulting PDF should be in the same directory as the .tex file

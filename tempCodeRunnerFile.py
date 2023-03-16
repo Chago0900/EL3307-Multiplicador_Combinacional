@@ -1,0 +1,1 @@
+\newcommand{\myvariable}{my_var1}
