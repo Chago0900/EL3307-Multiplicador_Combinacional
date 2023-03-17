@@ -5,4 +5,4 @@ Grupo 8:
 
 Brenes Torres Santiago  
 Mora Fallas Marcelo   
-Rodriguez Lanuza Jevin 
+Rodriguez Lanuza Kevin 
