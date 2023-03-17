@@ -37,6 +37,9 @@ def multi (bits, num1, num2):
     global bin1
     global bin2
     global _result
+    global txtname #a esta variable debe ser asociado el nombre del archivo de texte
+    txtname = "sin archivo detectado"
+    
     lista1 = list(num1)
     lista2 = list(num2)
     bit = str(bits)
@@ -199,11 +202,13 @@ latex.write("\n")
 
 latex.write(r"\begin{frame}")
 latex.write(r"\frametitle{Datos iniciales}")
-latex.write(r"Operando uno "+str(bin1))
+latex.write(r"Operando uno: "+str(bin1))
 latex.write(r"\\")
-latex.write(r"Operando dos " + str(bin2))
+latex.write(r"Operando dos: " + str(bin2))
 latex.write(r"\\")
-latex.write(r"Cantidad de bits " + bit)
+latex.write(r"Cantidad de bits: " + bit)
+latex.write(r"\\")
+latex.write(r"Nombre de archivo: " + txtname)
 latex.write(r"\end{frame}")
 latex.write("\n")
 #
