@@ -51,7 +51,7 @@ def operar (firstBinary, secondBinary):
 		factor = 10
 	
 	print("\nMultiplication Result = " + str(binaryMultiply))
-	print("\n proceso= " + str(len(procedimiento)))
+	print("\n iteraciones= " + str(procedimiento))
 	return binaryMultiply
 
 def proceso():

@@ -121,10 +121,10 @@ def multi (bits, num1, num2):
         return False
     
 
-    if (verificarEntrada(num2, bits) == 1 and lista1[0] == "d"):
+    if (verificarEntrada(num2, bits) == 1 and lista2[0] == "d"):
         bin2 = conversion.dec_a_bin(int(num2[1:]))
     
-    elif (verificarEntrada(num2, bits) == 1):
+    elif (verificarEntrada(num2, bits) == 1 ):
         bin2 = conversion.dec_a_bin(int(num2))
 
     elif (verificarEntrada(num2, bits) == 2):
