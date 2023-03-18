@@ -12,8 +12,9 @@
 import algoritmo
 import conversion
 import os
-import subprocess
+import sys
 import io
+import pandas as pd
 
 
 def multiplicarFacil (num1, num2):
@@ -184,8 +185,38 @@ def isNumeric(x):
 
 #print(algoritmo.operar(1011, 1110))
 
+
+def mult():
+    argumentos = sys.argv[1:]
+    if argumentos[0] == "--bits":
+        print("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr")
+        
+        bits = argumentos[1]
+        num1 = argumentos[3]
+        num2 = argumentos[5]
+        multi(int(bits), num1, num2)
+    else:
+        print("**********************************************************************")
+        argumentos = sys.argv[1:]
+        datos = pd.read_csv("C:/Users/kejor/OneDrive/Documentos/GitHub/EL3307-Multiplicador_Combinacional/text.txt")
+        lista = datos.columns 
+        bi = int(lista[1])
+        a = lista[3]
+        b = lista[5]
+        print("---------------------------nombre texto" + argumentos[1])
+        multi(bi, a, b)
+        
+mult()
+
+"""argumentos = sys.argv[1:]
+bits = argumentos[1]
+num1 = argumentos[3]
+num2 = argumentos[5]
+multi(int(bits), num1, num2, argumentos[0])"""
+
+
 #multi (10, "h1A1", "123")
-multi (10, "b1011", "b1110")
+#multi (10, "b1011", "b1110")
 #verificarHexadecimal(["1", "H", "0"])
 
 ##verificarEntrada("b151", 5)
