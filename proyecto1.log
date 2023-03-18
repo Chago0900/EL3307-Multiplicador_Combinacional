@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.10) (preloaded format=pdflatex 2023.3.15)  17 MAR 2023 22:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.10) (preloaded format=pdflatex 2023.3.15)  17 MAR 2023 23:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -793,8 +793,7 @@ tex.def
 File: l3backend-pdftex.def 2022-09-28 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count334
 \l__pdf_internal_box=\box76
-)
-No file proyecto1.aux.
+) (proyecto1.aux)
 \openout1 = `proyecto1.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 2.
@@ -815,6 +814,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 2.
 LaTeX Font Info:    ... okay on input line 2.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 2.
 LaTeX Font Info:    ... okay on input line 2.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -876,6 +876,7 @@ fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 Package hyperref Info: Link coloring OFF on input line 2.
+ (proyecto1.out) (proyecto1.out)
 \@outlinefile=\write5
 \openout5 = `proyecto1.out'.
 
@@ -955,15 +956,13 @@ Dictionary: translator-numbers-dictionary, Language: English
 (C:\Users\kejor\AppData\Local\Programs\MiKTeX\tex/latex/translator\translator-t
 heorem-dictionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
-)
-No file proyecto1.nav.
-[1
+) (proyecto1.nav) [1
 
 {C:/Users/kejor/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.4 ...00\\1011\\1011\\+1011\\=10011010\end{frame}
+l.4 ...00000\\00000\\+10101\\=101010000\end{frame}
                                                   
 ? 
 LaTeX Font Info:    Trying to load font information for U+msa on input line 4.
@@ -990,13 +989,13 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.4 ...00\\1011\\1011\\+1011\\=10011010\end{frame}
+l.4 ...00000\\00000\\+10101\\=101010000\end{frame}
                                                   
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.4 ...00\\1011\\1011\\+1011\\=10011010\end{frame}
+l.4 ...00000\\00000\\+10101\\=101010000\end{frame}
                                                   
 ? 
 [2
@@ -1014,20 +1013,14 @@ l.4 ...00\\1011\\1011\\+1011\\=10011010\end{frame}
 \openout8 = `proyecto1.snm'.
 
  (proyecto1.aux)
-
-Package rerunfilecheck Warning: File `proyecto1.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `proyecto1.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  D41D8CD98F00B204E9800998ECF8427E;0.
+Package rerunfilecheck Info: File `proyecto1.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 21673 strings out of 475385
- 432037 string characters out of 2776907
- 728882 words of memory out of 3000000
- 42588 multiletter control sequences out of 15000+600000
+ 21692 strings out of 475385
+ 432528 string characters out of 2776907
+ 729010 words of memory out of 3000000
+ 42599 multiletter control sequences out of 15000+600000
  476009 words of font info for 52 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,15n,122p,525b,560s stack positions out of 10000i,1000n,20000p,200000b,80000s
@@ -1036,7 +1029,7 @@ cmss10.pfb><C:/Users/kejor/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmss12.pfb><C:/Users/kejor/AppData/Local/Programs/MiKTeX/fonts/type1/p
 ublic/amsfonts/cm/cmss8.pfb><C:/Users/kejor/AppData/Local/Programs/MiKTeX/fonts
 /type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on proyecto1.pdf (3 pages, 62869 bytes).
+Output written on proyecto1.pdf (3 pages, 62965 bytes).
 PDF statistics:
  117 PDF objects out of 1000 (max. 8388607)
  7 named destinations out of 1000 (max. 500000)

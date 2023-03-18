@@ -16,6 +16,65 @@ import sys
 import io
 import pandas as pd
 
+def you ():
+    latex = io.StringIO()
+    latex.write(r"\documentclass{beamer}")
+    latex.write("\n")
+    latex.write(r"\usetheme{Madrid}")
+    latex.write(r"\usecolortheme{seagull}")
+
+    latex.write(r"\title{Multiplicador Combinacional}")
+    latex.write(r"\author{Proyecto 1}")
+
+    latex.write(r"\begin{document}")
+    latex.write("\n")
+
+    latex.write(r"\begin{frame}")
+    latex.write(r"\frametitle{Datos iniciales}")
+    latex.write(r"Operando uno: "+str(bin1))
+    latex.write(r"\\")  
+    latex.write(r"Operando dos: " + str(bin2))
+    latex.write(r"\\")
+    latex.write(r"Cantidad de bits: " + bit)
+    latex.write(r"\\")
+    latex.write(r"Nombre de archivo: " + txtname)
+    latex.write(r"\end{frame}")
+    latex.write("\n")
+#
+    latex.write(r"\begin{frame}")
+    latex.write(r"\frametitle{Datos}")
+    latex.write(r"\,\,\,\,\,"+str(bin1))
+    latex.write(r"\\")
+    latex.write(r"\times "+str(bin2))
+    latex.write(r"\\")
+    def process ():
+        while len(procedimiento) != 1:
+            latex.write(r""+ procedimiento[0])
+            latex.write(r"\\")
+            procedimiento.pop(0)
+        latex.write(r"+"+ procedimiento[0])
+        latex.write(r"\\")
+    
+    process ()
+#
+    latex.write(r"="+_result)
+    latex.write(r"\end{frame}")
+    latex.write("\n")
+#
+    latex.write(r"\begin{frame}")
+    latex.write(r"\frametitle{Informaci\'on}")
+    latex.write(r"Dr.-Ing Pablo Mendoza Ponce \\ Santiago Brenes \\ Marcelo Mora \\ Kevin Rodr\'iguez \\ Instituto Tenol\'ogico de Costa Rica \\ Dise\~{n}o L\'ogico \\ Primer semestre 2023")
+    latex.write(r"\end{frame}")
+#
+    latex.write("\n")
+    latex.write(r"\end{document}")
+
+# Escribir el archivo a disco
+    with open("proyecto1.tex", "w") as f:
+        f.write(latex.getvalue())
+
+# Compilar el archivo LaTeX
+    os.system("pdflatex proyecto1.tex")
 
 def multiplicarFacil (num1, num2):
     
@@ -39,8 +98,6 @@ def multi (bits, num1, num2):
     global bin2
     global _result
     global procedimiento
-    global txtname #a esta variable debe ser asociado el nombre del archivo de texte
-    txtname = "sin archivo detectado"
     
     lista1 = list(num1)
     lista2 = list(num2)
@@ -75,16 +132,16 @@ def multi (bits, num1, num2):
     
     elif (verificarEntrada(num2, bits) == 3):
         temp = conversion.hex_a_bin(num2[1:])
-        bin2 = int(temp[2:])
+        bin2 = int(temp[3:])
 
     else:
         print ("El sieguiente valor de entrada no es permitido: " + num2)
         return False
-    
     _result = str(algoritmo.operar(bin1, bin2))
     print(_result)
     
     procedimiento = algoritmo.proceso()
+    you()
     return True
 
 
@@ -187,23 +244,22 @@ def isNumeric(x):
 
 
 def mult():
+    global txtname
     argumentos = sys.argv[1:]
     if argumentos[0] == "--bits":
-        print("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr")
-        
+        txtname = "no ingresado por archivo de texto"
         bits = argumentos[1]
         num1 = argumentos[3]
         num2 = argumentos[5]
         multi(int(bits), num1, num2)
     else:
-        print("**********************************************************************")
         argumentos = sys.argv[1:]
-        datos = pd.read_csv("C:/Users/kejor/OneDrive/Documentos/GitHub/EL3307-Multiplicador_Combinacional/text.txt")
+        txtname = argumentos[1]
+        datos = pd.read_csv("C:/Users/kejor/OneDrive/Documentos/GitHub/EL3307-Multiplicador_Combinacional/"+argumentos[1])
         lista = datos.columns 
         bi = int(lista[1])
         a = lista[3]
         b = lista[5]
-        print("---------------------------nombre texto" + argumentos[1])
         multi(bi, a, b)
         
 mult()
@@ -221,61 +277,6 @@ multi(int(bits), num1, num2, argumentos[0])"""
 
 ##verificarEntrada("b151", 5)
 # Crear el archivo LaTeX en memoria
-latex = io.StringIO()
-latex.write(r"\documentclass{beamer}")
-latex.write("\n")
-latex.write(r"\usetheme{Madrid}")
-latex.write(r"\usecolortheme{seagull}")
 
-latex.write(r"\title{Multiplicador Combinacional}")
-latex.write(r"\author{Proyecto 1}")
 
-latex.write(r"\begin{document}")
-latex.write("\n")
 
-latex.write(r"\begin{frame}")
-latex.write(r"\frametitle{Datos iniciales}")
-latex.write(r"Operando uno: "+str(bin1))
-latex.write(r"\\")  
-latex.write(r"Operando dos: " + str(bin2))
-latex.write(r"\\")
-latex.write(r"Cantidad de bits: " + bit)
-latex.write(r"\\")
-latex.write(r"Nombre de archivo: " + txtname)
-latex.write(r"\end{frame}")
-latex.write("\n")
-#
-latex.write(r"\begin{frame}")
-latex.write(r"\frametitle{Datos}")
-latex.write(r"\,\,\,\,\,"+str(bin1))
-latex.write(r"\\")
-latex.write(r"\times "+str(bin2))
-latex.write(r"\\")
-def process ():
-    while len(procedimiento) != 1:
-        latex.write(r""+ procedimiento[0])
-        latex.write(r"\\")
-        procedimiento.pop(0)
-    latex.write(r"+"+ procedimiento[0])
-    latex.write(r"\\")
-    
-process ()
-#
-latex.write(r"="+_result)
-latex.write(r"\end{frame}")
-latex.write("\n")
-#
-latex.write(r"\begin{frame}")
-latex.write(r"\frametitle{Informaci\'on}")
-latex.write(r"Dr.-Ing Pablo Mendoza Ponce \\ Santiago Brenes \\ Marcelo Mora \\ Kevin Rodr\'iguez \\ Instituto Tenol\'ogico de Costa Rica \\ Dise\~{n}o L\'ogico \\ Primer semestre 2013")
-latex.write(r"\end{frame}")
-#
-latex.write("\n")
-latex.write(r"\end{document}")
-
-# Escribir el archivo a disco
-with open("proyecto1.tex", "w") as f:
-    f.write(latex.getvalue())
-
-# Compilar el archivo LaTeX
-os.system("pdflatex proyecto1.tex")
