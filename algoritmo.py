@@ -1,3 +1,6 @@
+
+global procedimiento 
+procedimiento = []
 def productouct(op1, op2):
 	i = 0
 	acarreo = 0
@@ -33,19 +36,30 @@ def productouct(op1, op2):
 
 def operar (firstBinary, secondBinary):
 	binaryMultiply = 0 
+	temp = firstBinary 
 	factor = 1
 	while secondBinary != 0:
 		digit = secondBinary % 10
 		if digit == 1:
 			firstBinary = firstBinary * factor
+			procedimiento.append(str(temp))
 			binaryMultiply = productouct(firstBinary, binaryMultiply)
 		else:
 			firstBinary = firstBinary * factor
+			procedimiento.append(completar(temp))
 		secondBinary = int(secondBinary/10)
 		factor = 10
 	
 	print("\nMultiplication Result = " + str(binaryMultiply))
+	print("\n proceso= " + str(len(procedimiento)))
 	return binaryMultiply
 
- 
- 
+def proceso():
+    return procedimiento
+
+def completar(firstBinary):
+     temp1 = ""
+     while firstBinary != 0:
+         temp1 += "0"
+         firstBinary = firstBinary//10
+     return temp1

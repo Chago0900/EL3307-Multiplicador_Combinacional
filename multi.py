@@ -37,6 +37,7 @@ def multi (bits, num1, num2):
     global bin1
     global bin2
     global _result
+    global procedimiento
     global txtname #a esta variable debe ser asociado el nombre del archivo de texte
     txtname = "sin archivo detectado"
     
@@ -79,9 +80,10 @@ def multi (bits, num1, num2):
         print ("El sieguiente valor de entrada no es permitido: " + num2)
         return False
     
-    
-    print(algoritmo.operar(bin1, bin2))
     _result = str(algoritmo.operar(bin1, bin2))
+    print(_result)
+    
+    procedimiento = algoritmo.proceso()
     return True
 
 
@@ -182,8 +184,8 @@ def isNumeric(x):
 
 #print(algoritmo.operar(1011, 1110))
 
-multi (10, "h1A1", "123")
-
+#multi (10, "h1A1", "123")
+multi (10, "b1011", "b1110")
 #verificarHexadecimal(["1", "H", "0"])
 
 ##verificarEntrada("b151", 5)
@@ -203,7 +205,7 @@ latex.write("\n")
 latex.write(r"\begin{frame}")
 latex.write(r"\frametitle{Datos iniciales}")
 latex.write(r"Operando uno: "+str(bin1))
-latex.write(r"\\")
+latex.write(r"\\")  
 latex.write(r"Operando dos: " + str(bin2))
 latex.write(r"\\")
 latex.write(r"Cantidad de bits: " + bit)
@@ -214,8 +216,20 @@ latex.write("\n")
 #
 latex.write(r"\begin{frame}")
 latex.write(r"\frametitle{Datos}")
-latex.write(r""+str(bin1))
-latex.write(r"\times "+str(bin1))
+latex.write(r"\,\,\,\,\,"+str(bin1))
+latex.write(r"\\")
+latex.write(r"\times "+str(bin2))
+latex.write(r"\\")
+def process ():
+    while len(procedimiento) != 1:
+        latex.write(r""+ procedimiento[0])
+        latex.write(r"\\")
+        procedimiento.pop(0)
+    latex.write(r"+"+ procedimiento[0])
+    latex.write(r"\\")
+    
+process ()
+#
 latex.write(r"="+_result)
 latex.write(r"\end{frame}")
 latex.write("\n")
